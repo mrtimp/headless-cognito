@@ -13,13 +13,18 @@ builds:
     ldflags:
       - -s -w
 
-brews:
+homebrew_casks:
   - repository:
       owner: mrtimp
       name: homebrew-formulas
-    directory: Formula
     homepage: "https://github.com/mrtimp/headless-cognito"
     description: "Authenticate through an AWS ALB Cognito action and export the session cookies"
     commit_author:
       name: mrtimp
       email: timp@unfuddle.nz
+    hooks:
+      post:
+        install_steps: |
+          on_macos do
+            run "/usr/bin/xattr", args: ["-dr", "com.apple.quarantine", "{{ .StagedPath }}/headless-cognito"]
+          end
