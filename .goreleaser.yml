@@ -17,6 +17,7 @@ homebrew_casks:
   - repository:
       owner: mrtimp
       name: homebrew-formulas
+      token: "{{ .Env.HOMEBREW_TAP_TOKEN }}"
     homepage: "https://github.com/mrtimp/headless-cognito"
     description: "Authenticate through an AWS ALB Cognito action and export the session cookies"
     commit_author:
