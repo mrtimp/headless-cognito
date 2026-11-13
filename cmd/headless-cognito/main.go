@@ -45,6 +45,9 @@ func main() {
 		panic(err)
 	}
 	if _, err := parser.Parse(); err != nil {
+		if flags.WroteHelp(err) {
+			os.Exit(0)
+		}
 		os.Exit(2)
 	}
 
