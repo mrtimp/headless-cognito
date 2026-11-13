@@ -1,0 +1,4 @@
+/.gopath/
+/bin/
+/.idea
+/cognito-auth.json
